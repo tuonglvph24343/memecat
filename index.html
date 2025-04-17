@@ -1,96 +1,99 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cats Meme</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="">
 </head>
-
 <body>
-  <div class="container-sm">
-    <div class="row">
-      <div class="cat-container">
-        <img id="catImage" src="./images/HappyCat.gif" alt="Static Cat" class="cat-image" />
-        <button id="happyButton" class="cat-button">Happy</button>
-      </div>
 
-      <div class="cat-container">
-        <img id="cryingCatImage" src="./images/CryingCatRun.gif" alt="Static Cat" class="cat-image" />
-        <button id="cryButton" class="cat-button">Cry</button>
-      </div>
-      <div class="cat-container">
-        <img id="theRockCatImage" src="./images/TheRockCatPic.png" alt="" class="cat-image" />
-        <button id="susButton" class="cat-button">SUS!</button>
-      </div>
-    </div>
+  <h1>MEME CAT (CLICK VÀO NHÉ) </h1>
+
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
   </div>
 
-  <audio id="catSound" src="./Source/HappyHappyHappy.mp3"></audio>
-  <audio id="cryingCatSound" src="./Source/Crying.mp3"></audio>
-  <audio id="theRockSound" src="./Source/TheRockSound.mp3"></audio>
+  <!-- Grid of Cats -->
+  <div class="container">
 
+    <!-- Happy Cat -->
+    <div class="cat-container">
+      <img id="catImage" src="./Source/HappyCat/HappyCatStop.gif" alt="Happy Cat" class="cat-image"/>
+      <button id="happyButton" class="cat-button">Happy</button>
+    </div>
 
+    <!-- Cheems -->
+    <div class="cat-container">
+      <img id="cheemsImage" src="./Source/Cheems/2Cheems.png" alt="Cheems" class="cat-image"/>
+      <div class="button-container">
+        <button id="bonkButton" class="cat-button">1 Bonk</button>
+        <button id="continuousBonkButton" class="cat-button">Ultra Bonk</button>
+      </div>
+    </div>
 
-  <script src="script.js"></script>
-  <script>
-    function preload(assets, sounds, callback) {
-      var loadedCount = 0;
-      var totalAssets = assets.length + sounds.length;
+    <!-- Crying Cat -->
+    <div class="cat-container">
+      <img id="cryingCatImage" src="./Source/CryingCat/CryingCatRun.gif" alt="Crying Cat" class="cat-image"/>
+      <button id="cryButton" class="cat-button">Cry</button>
+    </div>
 
-      function assetLoaded() {
-        loadedCount++;
-        if (loadedCount === totalAssets) {
-          callback();
-        }
-      }
+    <!-- Vibing Cat -->
+    <div class="cat-container">
+      <img id="vibingCatImage" src="./Source/VibingCat/VibingCatPic.gif" alt="Vibing Cat" class="cat-image"/>
+      <button id="vibingButton" class="cat-button">Vibe</button>
+    </div>
 
-      function loadAssets() {
-        assets.forEach(function (src) {
-          var img = new Image();
-          img.onload = assetLoaded;
-          img.src = src;
-        });
-      }
+    <!-- Pop Cat -->
+    <div class="cat-container">
+      <img id="popCatImage" src="./Source/PopCat/PopCatPic.gif" alt="Pop Cat" class="cat-image"/>
+      <div class="button-container">
+        <button id="popButton" class="cat-button">Pop</button>
+        <button id="continuousPopButton" class="cat-button">Ultra Pop</button>
+      </div>
+    </div>
 
-      function loadSounds() {
-        sounds.forEach(function (src) {
-          var audio = new Audio();
-          audio.oncanplaythrough = assetLoaded;
-          audio.src = src;
-        });
-      }
+    <!-- The Rock Cat -->
+    <div class="cat-container">
+      <img id="theRockCatImage" src="./Source/TheRockCat/TheRockCatPic.png" alt="The Rock Cat" class="cat-image"/>
+      <button id="susButton" class="cat-button">SUS!</button>
+    </div>
 
-      loadAssets();
-      loadSounds();
-    }
+    <!-- Oiia Cat -->
+    <div class="cat-container">
+      <img id="oiiaCatImage" src="./Source/OiiaCat/OiiaCat.png" alt="Oiia Cat" class="cat-image"/>
+      <button id="oiiaSpinButton" class="cat-button">Spin</button>
+    </div>
 
-    function initialize() {
-      // Code to initialize the application
-      // You can start using the preloaded assets here
-    }
+    <!-- Maxwell Cat -->
+    <div class="cat-container">
+      <img id="maxwellCatImage" src="./Source/MaxwellCat/MaxwellCatPic.gif" alt="Maxwell Cat" class="cat-image"/>
+      <button id="maxwellSwingButton" class="cat-button">Swing</button>
+    </div>
 
-    document.addEventListener("DOMContentLoaded", function () {
-      var assets = [
-        "./images/HappyCat.gif",
-        "./images/TheRockCatPic.png",
-        "./images/CryingCatRun.gif",
+    <!-- Tom ChingCheng -->
+    <div class="cat-container">
+      <img id="tomChingChengCatImage" src="./Source/TomChingCheng/TomChingChengPic.png" alt="Tom ChingCheng" class="cat-image"/>
+      <button id="spinButton" class="cat-button">Spin</button>
+    </div>
 
-      ];
+  </div>
 
-      var sounds = [
-        "./Source/HappyHappyHappy.mp3",
-        "./Source/Crying.mp3",
-        "./Source/TheRockSound.mp3",
-      ];
+  <!-- Audio Elements -->
+  <audio id="catSound" src="./Source/HappyCat/HappyHappyHappy.mp3" preload="none"></audio>
+  <audio id="cryingCatSound" src="./Source/CryingCat/Crying.mp3" preload="none"></audio>
+  <audio id="theRockSound" src="./Source/TheRockCat/TheRockSound.mp3" preload="none"></audio>
+  <audio id="tomChingChengSound" src="./Source/TomChingCheng/ChingChengHanji.mp3" preload="none"></audio>
+  <audio id="oiiaCatSound" src="./Source/OiiaCat/OiiaCat.mp3" preload="none"></audio>
+  <audio id="popCatSound" src="./Source/PopCat/PopCatSound.mp3" preload="none"></audio>
+  <audio id="bonkSound" src="./Source/Cheems/Bonk.mp3" preload="none"></audio>
+  <audio id="maxwellSound" src="./Source/MaxwellCat/MaxwellSound.mp3" preload="none"></audio>
+  <audio id="vibingCatSound" src="./Source/VibingCat/VibingCatSound.mp3" preload="none"></audio>
 
-      preload(assets, sounds, initialize);
-    });
-  </script>
-//test
+  <script src="script.js" defer></script>
 
 </body>
-
 </html>
