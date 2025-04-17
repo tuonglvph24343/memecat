@@ -181,7 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
           image.src = config.activeSrc;
           if (audio && !isSoundPlaying) {
             audio.currentTime = soundPosition;
-            audio.play();
+            audio.load(); // thêm dòng này
+            audio.play().catch(e => {
+              console.log("Audio play blocked:", e);
+            });
             isSoundPlaying = true;
           }
           if (config.toggleButtonText) {
